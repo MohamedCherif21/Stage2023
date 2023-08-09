@@ -1,0 +1,172 @@
+
+.template {
+  margin: 5px;
+  box-shadow: 0 0 3px gray;
+  padding: 5px;
+  position: relative;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.template img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.text {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  color: white;
+  text-align: center;
+}
+
+.template:hover {
+  box-shadow: 0 0 6px gray;
+}
+
+.template:hover .text {
+  opacity: 1;
+}
+
+.template:hover .text p {
+  transform: translateY(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.text p {
+  margin: 0;
+  font-size: 20px;
+  transform: translateY(20px);
+  
+}
+
+.home {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+
+.text button {
+  display: none;
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 8px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: background-color 0.3s ease-in-out;
+}
+
+.text p {
+  margin: 0;
+  font-size: 20px;
+  transform: translateY(20px);
+  transition: transform 0.3s ease-in-out;
+}
+
+.text:hover button {
+  display: block;
+  background-color: white;
+  color: black;
+}
+
+.text:hover p {
+  transform: translateY(0);
+}
+
+
+/* Global styles */
+.cv-template {
+  font-family: Arial, sans-serif;
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 800px;
+}
+
+.tops {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.tops h1 {
+  font-size: 28px;
+  margin-bottom: 5px;
+}
+
+.contact-info p {
+  margin: 5px 0;
+}
+
+.sections {
+  margin-top: 30px;
+}
+
+/* Skills & Education Section styles */
+.sections h2 {
+  font-size: 25px;
+  margin-bottom: 10px;
+  
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-md-6 {
+  flex: 0 0 50%;
+  max-width: 50%;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+ul {
+  list-style: none;
+  padding-left: 20px;
+  margin: 0;
+}
+
+ul li {
+  margin-bottom: 5px;
+}
+
+/* Experience / Projects Section styles */
+.experience-items,
+.project-items {
+  margin-bottom: 40px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.experience-items h3,
+.project-items h3 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.experience-items p,
+.project-items p {
+  margin: 5px 0;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 15px 0;
+}

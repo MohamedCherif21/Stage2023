@@ -1,0 +1,72 @@
+/* template2.css */
+
+/* ... (previous styles) */
+
+.cv-template {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f7f7f7;
+  }
+  
+  .top {
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: #5ddaf0cc; /* Blue background */
+    padding: 20px;
+    color: rgb(0, 0, 0);
+  }
+  
+  .top h1 {
+    margin: 0;
+    font-size: 28px;
+  }
+  
+  .contact-info {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
+  /* ... (rest of the styles) */
+  
+  .section h2 {
+    font-size: 22px;
+    color: #e74c3c; /* Red color */
+  }
+  
+  /* ... (rest of the styles) */
+  
+  .two-columns {
+    display: flex;
+    flex-wrap: wrap;
+    border-left: 5px solid #5ddaf0cc; /* Green left border */
+    
+    
+  }
+  
+  .column {
+    flex: 1;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    
+  }
+  
+  ul {
+    list-style: none;
+    padding-left: 20px;
+  }
+  
+  .project-item,
+  .experience-item {
+    margin-bottom: 15px;
+    
+    padding-left: 10px;
+  }
+  
+  .project-item p,
+  .experience-item p {
+    margin: 5px 0;
+  }
+  
+  /* ... (rest of the styles) */
+  

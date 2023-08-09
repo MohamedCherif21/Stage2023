@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400&display=swap');
+body {
+  margin: 0;
+  font-family: 'Merriweather', sans-serif ;
+}
+
+button{
+  background-color:rgb(152, 152, 240);
+  box-shadow: none;
+  border: none;
+}
+
+input,TextArea{
+  box-shadow: 0 0 3px rgb(152, 152, 240);
+}
+
+
+.ant-spin{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+}
