@@ -12,16 +12,20 @@ function formatDate(dateString) {
 
 function Template1() {
   const user = JSON.parse(localStorage.getItem("my-cv-users"));
-  const profileImage = user.data.profileImage; // Récupère l'URL de l'image de profil
+  localStorage.setItem("my-cv-users", JSON.stringify(user));
+  
 
   return (
+    
     <div className="cv-template">
       <div className="tops">
-        <h1>
-          {user.data.firsName.toUpperCase()} {user.data.lastname.toUpperCase()}
-        </h1>
-        <div></div>
-
+  <h1>
+    {user.data.firsName.toUpperCase()} {user.data.lastname.toUpperCase()}
+  </h1>
+  <div>
+  <img src={`http://localhost:3000/${(user.data.image)}`} alt="Uploaded"  className="small-profile-image" />
+  </div>
+    
         <div className="contact-info">
           <p>Email: {user.data.email}</p>
           <p>Mobile: {user.data.mobile}</p>
@@ -30,9 +34,7 @@ function Template1() {
       </div>
       <br></br>
       <p>{user.data.ProfessionalSummary}</p>
-  <div>
-  <img src={`http://localhost:3000/Users/cheri/Stage2023/${profileImage}`} alt="Uploaded" />
-  </div>
+
 
 
       {/* Skills & Education Section */}
@@ -55,9 +57,8 @@ function Template1() {
             <ul>
               {user.data.education.map((education, index) => (
                 <li key={index}>
-                  <b>From</b> {formatDate(education.dateRange[0])} <b>To</b>{" "}
-                  {formatDate(education.dateRange[1])}
-                  <br></br>
+                 {education.dateRange} 
+                 <br></br>
                   {education.degree} <b>In</b> {education.institution}
                 </li>
               ))}
@@ -74,10 +75,8 @@ function Template1() {
           {user.data.employment.map((employment, index) => (
             <div key={index} className="experience-items">
               <h3>Experience</h3>
-              <div>
-                <b>From</b> {formatDate(employment.dateRangeemployment[0])}{" "}
-                <b>To</b> {formatDate(employment.dateRangeemployment[1])}{" "}
-              </div>
+              {employment.dateRangeemployment} 
+                 <br></br>
               <p>Job: {employment.job}</p>
               <p>Employer: {employment.Employer}</p>
               <p>City: {employment.city}</p>
@@ -88,10 +87,8 @@ function Template1() {
           {user.data.Project.map((project, index) => (
             <div key={index} className="project-items">
               <h3>Projects</h3>
-              <div>
-                <b>From</b> {formatDate(project.dateRangeexperience[0])}{" "}
-                <b>To</b> {formatDate(project.dateRangeexperience[1])}{" "}
-              </div>
+              {project.dateRangeexperience} 
+                 <br></br>
               <p>Project: {project.Project}</p>
               <p>Description: {project.Descriptionproj}</p>
             </div>

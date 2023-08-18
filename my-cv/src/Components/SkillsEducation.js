@@ -6,12 +6,11 @@ import {
 } from "@ant-design/icons";
 import React, { useState } from "react";
 
-const { TextArea } = Input;
-const { RangePicker } = DatePicker;
-
 function SkillsEducation() {
   const [percent, setPercent] = useState(0);
 
+  const { TextArea } = Input;
+const { RangePicker } = DatePicker;
   const increase = () => {
     setPercent((prevPercent) => {
       const newPercent = prevPercent + 10;
@@ -69,9 +68,18 @@ function SkillsEducation() {
                     </Form.Item>
                   </div>
                   <div className="col-md-4">
-                    <Form.Item {...restField} name={[name, "dateRange"]}>
-                      <RangePicker />
-                    </Form.Item>
+                    <Form.Item
+                      {...restField}
+                      name={[name, "dateRange"]}
+                      rules={[
+                        {
+                          required: true,
+                          message: "Missing date ",
+                        },
+                      ]}
+                    >
+                      <Input placeholder="year range" />
+                    </Form.Item> 
                   </div>
                   <div className="col-md-10">
                     <Form.Item

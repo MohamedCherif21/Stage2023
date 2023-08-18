@@ -18,13 +18,12 @@ function Template2() {
       <div className="top">
         <h1>
           {user.data.firsName.toUpperCase()} {user.data.lastname.toUpperCase()}
+          <img src={`http://localhost:3000/${(user.data.image)}`} alt="Uploaded"  className="profile-image" />
         </h1>
-
-        <div className="contact-info">
           <p>Email: {user.data.email}</p>
           <p>Mobile: {user.data.mobile}</p>
           <p>City: {user.data.city}</p>
-        </div>
+      
       </div>
       <br />
       <p>{user.data.ProfessionalSummary}</p>
@@ -69,10 +68,8 @@ function Template2() {
           <div className="experience-section">
             {user.data.employment.map((employment, index) => (
               <div key={index} className="experience-item">
-                <div>
-                  <b>From</b> {formatDate(employment.dateRangeemployment[0])}{" "}
-                  <b>To</b> {formatDate(employment.dateRangeemployment[1])}{" "}
-                </div>
+                 {employment.dateRangeemployment} 
+                 <br></br>
                 <p>Job: {employment.job}</p>
                 <p>Employer: {employment.Employer}</p>
                 <p>City: {employment.city}</p>
@@ -85,10 +82,8 @@ function Template2() {
           <div className="projects-section">
             {user.data.Project.map((project, index) => (
               <div key={index} className="project-item">
-                <div>
-                  <b>From</b> {formatDate(project.dateRangeexperience[0])}{" "}
-                  <b>To</b> {formatDate(project.dateRangeexperience[1])}{" "}
-                </div>
+              {project.dateRangeexperience} 
+                 <br></br>
                 <p>Project: {project.Project}</p>
                 <p>Description: {project.Descriptionproj}</p>
               </div>

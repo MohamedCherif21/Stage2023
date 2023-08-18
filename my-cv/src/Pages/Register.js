@@ -7,16 +7,23 @@ import axios from "axios";
 function Register() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const validatePassword = (_, value) => {
+    if (value && value.length < 8) {
+      return Promise.reject("Le mot de passe doit contenir au moins 8 caractères.");
+    }
+    return Promise.resolve();
+  };
+
   const onFinish = async (values) => {
     setLoading(true);
     try {
       await axios.post("api/user/register", values);
       setLoading(false);
-      message.success("registration successefull");
+      message.success("Inscription réussie");
       navigate("/login");
     } catch (error) {
       setLoading(false);
-      message.error("registration failedd");
+      message.error("Échec de l'inscription");
     }
   };
 
@@ -24,7 +31,8 @@ function Register() {
     if (localStorage.getItem("my-cv-users")) {
       navigate("/home");
     }
-  });
+  }, [navigate]);
+
   return (
     <div className="auth-parent">
       {loading && <Spin size="large" />}
@@ -35,7 +43,7 @@ function Register() {
           <input type="text" name="name" value="username" />
         </Form.Item>
 
-        <Form.Item name="password" label="Password">
+        <Form.Item name="password" label="Password" rules={[{ validator: validatePassword }]}>
           <input type="password" />
         </Form.Item>
 
@@ -44,9 +52,9 @@ function Register() {
         </Form.Item>
 
         <div className="d-flex align-items-center justify-content-between">
-          <Link to="/Login"> click Here to Login </Link>
-          <button type="primary" htmltype="Submit">
-            Register
+          <Link to="/Login">Cliquez ici pour vous connecter</Link>
+          <button type="primary" htmltype="submit">
+            S'inscrire
           </button>
         </div>
       </Form>

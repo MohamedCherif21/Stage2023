@@ -109,7 +109,8 @@
 }
 
 .contact-info p {
-  margin: 5px 0;
+  padding-left: 3cm;
+
 }
 
 .sections {
@@ -170,3 +171,13 @@ hr {
   border-top: 1px solid #ccc;
   margin: 15px 0;
 }
+
+
+.small-profile-image {
+  max-width: 15%; 
+  max-height: 20%;
+  float: right; /* Pour aligner l'image à droite */
+  margin-left: 8px; /* Pour ajouter un espace entre l'image et le contenu */
+
+}
+

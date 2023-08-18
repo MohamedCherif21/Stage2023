@@ -6,6 +6,8 @@ import "../Ressources/templates.css";
 import { useNavigate } from "react-router-dom";
 
 function Home() {
+  const user = JSON.parse(localStorage.getItem("my-cv-users"));
+  localStorage.setItem("my-cv-users", JSON.stringify(user));
   const navigate = useNavigate();
   const templates = [
     {

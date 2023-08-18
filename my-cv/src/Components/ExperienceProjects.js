@@ -6,10 +6,12 @@ import {
 } from "@ant-design/icons";
 import React, { useState } from "react";
 
-const { RangePicker } = DatePicker;
+
+
+function ExperienceProject() {
+  const { RangePicker } = DatePicker;
 const { TextArea } = Input;
 
-function SkillsEducation() {
   return (
     <div>
         
@@ -52,9 +54,18 @@ function SkillsEducation() {
                     </div>
                     <div className="row"></div>
                     <div className="col-md-4">
-                    <Form.Item {...restField} name={[name, "dateRangeemployment"]}>
-                      <RangePicker />
-                    </Form.Item>
+                    <Form.Item
+                      {...restField}
+                      name={[name, "dateRangeemployment"]}
+                      rules={[
+                        {
+                          required: true,
+                          message: "Missing date ",
+                        },
+                      ]}
+                    >
+                      <Input placeholder="year range" />
+                    </Form.Item> 
                     </div>
                     <div className="col-md-4">
                       <Form.Item
@@ -121,13 +132,22 @@ function SkillsEducation() {
                     </Form.Item>
                   </div>
                   <div className="col-md-4">
-                  <Form.Item {...restField} name={[name, "dateRangeexperience"]}>
-                      <RangePicker />
-                    </Form.Item>
+                  <Form.Item
+                      {...restField}
+                      name={[name, "dateRangeexperience"]}
+                      rules={[
+                        {
+                          required: true,
+                          message: "Missing date ",
+                        },
+                      ]}
+                    >
+                      <Input placeholder="year range" />
+                    </Form.Item>                  
                   </div>
                   <Form.Item
                       {...restField}
-                      name={[name, "Descriptionproj"]} // Assurez-vous que c'est le bon nom de champ
+                      name={[name, "Descriptionproj"]} 
                       rules={[
                         {
                           required: true,
@@ -172,4 +192,4 @@ function SkillsEducation() {
   );
 }
 
-export default SkillsEducation;
+export default  ExperienceProject  ;

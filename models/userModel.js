@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema(
     skills: { type: Array, default: [] },
     employment: { type: Array, default: [] },
     Project: { type: Array, default: [] },
-    profileImage: { type: String, default: "" }, // Store the image URL here
+    image: { type: String, default: "" }, // Store the image URL here
   },
   {
     timestamps: true,

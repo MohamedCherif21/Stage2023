@@ -3,6 +3,8 @@ const app = express();
 const dbConnect = require("./dbConnect");
 const cors = require("cors"); // Importez le module CORS
 const path = require("path");
+app.use("/upload", express.static("upload"));
+
 
 app.use(cors());
 

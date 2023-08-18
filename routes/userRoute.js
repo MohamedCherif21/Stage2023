@@ -2,9 +2,10 @@ const express = require("express");
 
 const User = require("../models/userModel");
 const app = express.Router();
-const path = require("path");
 const multer = require("multer");
-app.use(express.static("upload"));
+
+app.use("/upload", express.static("upload"));
+
 
 app.post("/login", async (req, res) => {
   try {
@@ -43,8 +44,6 @@ app.post("/update", async (req, res) => {
   }
 });
 
-//const express = require("express");
-
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -60,8 +59,12 @@ const upload = multer({ storage: storage });
 app.post("/upload", upload.single("image"), async (req, res) => {
   try {
     const imageUrl = req.file.path;
-    await User.updateOne({profileImage:imageUrl})
-    console.log(imageUrl)
+    const userId = req.body._id; // Assurez-vous que vous avez l'ID de l'utilisateur connecté
+
+    // Mettez à jour l'URL de l'image pour l'utilisateur spécifique en utilisant son ID
+    await User.updateOne({ _id: userId }, { image: imageUrl });
+
+    console.log(imageUrl);
     res.json({ imageUrl }); // Renvoie l'URL de l'image dans la réponse JSON
   } catch (error) {
     console.error("Error uploading image:", error);
@@ -69,14 +72,21 @@ app.post("/upload", upload.single("image"), async (req, res) => {
   }
 });
 
-app.get("/imageName", (req, res) => {
-  const imageName = req.params.imageName;
-  const imagePath = path.join(__dirname, "upload", imageName);
 
-  res.sendFile(imagePath);
+app.get("/upload/:filename", async (req, res) => {
+  try {
+    const user = await User.findById(req.query.userId);
+    if (user && user.data.image === req.params.filename) {
+      const imagePath = path.join(__dirname, "../upload", req.params.filename);
+      res.sendFile(imagePath);
+    } else {
+      res.status(404).json({ error: "Image not found" });
+    }
+  } catch (error) {
+    console.error("Error retrieving image:", error);
+    res.status(500).json({ error: "Image retrieval failed" });
+  }
 });
-
-
 
 
 

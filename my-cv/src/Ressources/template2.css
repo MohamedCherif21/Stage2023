@@ -9,22 +9,22 @@
   }
   
   .top {
-    text-align: center;
-    margin-bottom: 20px;
-    background-color: #5ddaf0cc; /* Blue background */
-    padding: 20px;
+    text-align: left;
+    margin-bottom: 5px;
+    background-color: #5ddaf0cc;
+    padding: 10px;
     color: rgb(0, 0, 0);
+    display: flex; /* Ajoutez ceci */
+    flex-direction: column; /* Ajoutez ceci */
   }
   
   .top h1 {
     margin: 0;
     font-size: 28px;
+    margin-bottom: 10px; /* Ajoutez une marge inférieure */
   }
   
-  .contact-info {
-    margin-top: 10px;
-    font-size: 14px;
-  }
+  
   
   /* ... (rest of the styles) */
   
@@ -66,6 +66,16 @@
   .project-item p,
   .experience-item p {
     margin: 5px 0;
+  }
+
+  .profile-image {
+    max-width: 15%; 
+    max-height: 20%;
+    float: right; /* Pour aligner l'image à droite */
+    margin-left: 8px; /* Pour ajouter un espace entre l'image et le contenu */
+    border: 5px solid #5ddaf0cc;
+    
+  
   }
   
   /* ... (rest of the styles) */
