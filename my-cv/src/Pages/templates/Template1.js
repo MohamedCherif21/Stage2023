@@ -1,31 +1,22 @@
-import React, { useEffect, useState } from "react";
-import "../../Ressources/templates.css";
-import axios from "axios";
+import React from "react";
+import "../../Ressources/templates.css"; // Assurez-vous que le chemin d'accès au fichier CSS est correct
 
-function formatDate(dateString) {
-  const date = new Date(dateString);
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const day = String(date.getDate()).padStart(2, "0");
-  return `${year}-${month}-${day}`;
-}
-
-function Template1() {
+function Template3() {
   const user = JSON.parse(localStorage.getItem("my-cv-users"));
   localStorage.setItem("my-cv-users", JSON.stringify(user));
-  
 
   return (
-    
-    <div className="cv-template">
-      <div className="tops">
-  <h1>
-    {user.data.firsName.toUpperCase()} {user.data.lastname.toUpperCase()}
-  </h1>
-  <div>
-  <img src={`http://localhost:3000/${(user.data.image)}`} alt="Uploaded"  className="small-profile-image" />
-  </div>
-    
+    <div className="cv-template3"> {/* Remplacez "cv-template" par "cv-template3" */}
+      <div className="top-section">
+        <h1>
+          {user.data.firstName.toUpperCase()} {user.data.lastName.toUpperCase()}
+        </h1>
+        <img
+          src={`http://localhost:3000/${user.data.image}`} /* Modifiez "(user.data.image)" en "user.data.image" */
+          alt="Uploaded"
+          className="profile-image"
+        />
+
         <div className="contact-info">
           <p>Email: {user.data.email}</p>
           <p>Mobile: {user.data.mobile}</p>
@@ -33,32 +24,29 @@ function Template1() {
         </div>
       </div>
       <br></br>
-      <p>{user.data.ProfessionalSummary}</p>
+      <p>{user.data.professionalSummary}</p>
 
-
-
-      {/* Skills & Education Section */}
-      <div className="sections">
+      <div className="skills-education-section"> {/* Remplacez "sections" par "skills-education-section" */}
         <h2>Skills & Education</h2>
         <hr />
         <div className="row">
-          <div className="col-md-6">
+          <div className="skills-col">
             <h3>Skills</h3>
             <ul>
-              {user.data.skills.map((skills, index) => (
+              {user.data.skills.map((skill, index) => (
                 <li key={index}>
-                  {skills.skill} - {skills.degree}
+                  {skill.skill} - {skill.degree}
                 </li>
               ))}
             </ul>
           </div>
-          <div className="col-md-6">
+          <div className="education-col">
             <h3>Education</h3>
             <ul>
               {user.data.education.map((education, index) => (
                 <li key={index}>
-                 {education.dateRange} 
-                 <br></br>
+                  {education.dateRange}
+                  <br></br>
                   {education.degree} <b>In</b> {education.institution}
                 </li>
               ))}
@@ -67,30 +55,29 @@ function Template1() {
         </div>
       </div>
 
-      {/* Experience / Projects Section */}
-      <div className="sections">
+      <div className="experience-projects-section"> {/* Remplacez "sections" par "experience-projects-section" */}
         <h2>Experience & Projects</h2>
         <hr />
-        <div className="experience-sections">
+        <div className="experience-section">
           {user.data.employment.map((employment, index) => (
-            <div key={index} className="experience-items">
+            <div key={index} className="experience-item">
               <h3>Experience</h3>
-              {employment.dateRangeemployment} 
-                 <br></br>
+              {employment.dateRange}
+              <br></br>
               <p>Job: {employment.job}</p>
-              <p>Employer: {employment.Employer}</p>
+              <p>Employer: {employment.employer}</p>
               <p>City: {employment.city}</p>
             </div>
           ))}
         </div>
-        <div className="projects-sections">
-          {user.data.Project.map((project, index) => (
-            <div key={index} className="project-items">
+        <div className="projects-section">
+          {user.data.projects.map((project, index) => (
+            <div key={index} className="project-item">
               <h3>Projects</h3>
-              {project.dateRangeexperience} 
-                 <br></br>
-              <p>Project: {project.Project}</p>
-              <p>Description: {project.Descriptionproj}</p>
+              {project.dateRange}
+              <br></br>
+              <p>Project: {project.projectName}</p>
+              <p>Description: {project.description}</p>
             </div>
           ))}
         </div>
@@ -99,4 +86,4 @@ function Template1() {
   );
 }
 
-export default Template1;
+export default Template3;

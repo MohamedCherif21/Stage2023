@@ -40,8 +40,8 @@ function Register() {
       <Form layout="vertical" onFinish={onFinish}>
         <h1>Login</h1>
         <hr />
-        <Form.Item name="username" label="Username">
-          <input  type="text" name="name" value="username"/>
+        <Form.Item name="email" label="Email">
+          <input  type="text" name="name" value="email"/>
         </Form.Item>
 
         <Form.Item name="password" label="Password">
@@ -50,6 +50,8 @@ function Register() {
 
         <div className="d-flex align-items-center justify-content-between">
           <Link to="/Register"> Click Here to Register </Link>
+          <Link to="/forgot-password">Mot de passe oublié ?</Link>
+          <br/>
           <button type="primary" htmltype="Submit">
             Login
           </button>

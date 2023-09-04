@@ -3,11 +3,14 @@ import DefaultLayout from "../../Components/DefaultLayout";
 import Template1 from "./Template1";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import Template2 from "./Template2";
+import Template3 from "./Template3";
 
 import { useReactToPrint } from "react-to-print";
 import { Button } from "antd";
 
 function Templates() {
+  const user = JSON.parse(localStorage.getItem("my-cv-users"));
+  localStorage.setItem("my-cv-users", JSON.stringify(user));
   const componentRef = useRef();
   const Navigate= useNavigate();
   const handlePrint = useReactToPrint({
@@ -24,6 +27,9 @@ function Templates() {
       }
       case "2": {
         return <Template2 />;
+      }
+      case "3": {
+        return <Template3 />;
       }
       default: {
         return null; // Return a default component or handle invalid id

@@ -177,7 +177,7 @@ hr {
   max-width: 15%; 
   max-height: 20%;
   float: right; /* Pour aligner l'image à droite */
-  margin-left: 8px; /* Pour ajouter un espace entre l'image et le contenu */
+  margin-left:2px; /* Pour ajouter un espace entre l'image et le contenu */
 
 }
 

@@ -7,6 +7,9 @@ import Register from './Pages/Register';
 import Home from './Pages/Home';
 import Profile from './Pages/Profile';
 import Templates from './Pages/templates';
+import ForgotPassword from './Pages/ForgotPassword';
+import ResetPassword from './Pages/ResetPassword';
+
 
 
 function App() {
@@ -20,7 +23,8 @@ function App() {
           <Route path='/home' element={<ProtectedRoute><Home/></ProtectedRoute>}/>
           <Route path='/profile' element={<ProtectedRoute><Profile/></ProtectedRoute>}/>
           <Route path='/templates/:id' element={<ProtectedRoute><Templates/></ProtectedRoute>}/>
-
+          <Route path='/reset-password/:id' element={<ResetPassword/>}/>
+          <Route path="/forgot-password" element={<ForgotPassword/>} />
           <Route path='/login' element={<Login/>} />
           <Route path='/register' element={<Register/>} />
 

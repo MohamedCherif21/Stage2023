@@ -2,11 +2,10 @@ const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema(
   {
-    username: { type: String, required: true },
+    email: { type: String, required: true },
     password: { type: String, required: true },
     firsName: { type: String, default: "" },
     lastname: { type: String, default: "" },
-    email: { type: String, default: "" },
     mobile: { type: String, default: "" },
     country: { type: String, default: "" },
     ProfessionalSummary:{type: String ,default:""},
@@ -16,6 +15,7 @@ const userSchema = new mongoose.Schema(
     employment: { type: Array, default: [] },
     Project: { type: Array, default: [] },
     image: { type: String, default: "" }, // Store the image URL here
+   
   },
   {
     timestamps: true,

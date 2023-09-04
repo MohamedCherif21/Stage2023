@@ -52,7 +52,7 @@ function Profile() {
               },
             ]}
           />
-          <Button htmlType="submit">Submit</Button>
+          <Button htmltype="submit">Submit</Button>
         </Form>
       </div>
     </DefaultLayout>

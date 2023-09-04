@@ -2,15 +2,6 @@ import React from "react";
 import "../../Ressources/template2.css"; 
 
 
-
-function formatDate(dateString) {
-  const date = new Date(dateString);
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const day = String(date.getDate()).padStart(2, "0");
-  return `${year}-${month}-${day}`;
-}
-
 function Template2() {
   const user = JSON.parse(localStorage.getItem("my-cv-users"));
   return (
@@ -48,8 +39,7 @@ function Template2() {
           <ul>
             {user.data.education.map((education, index) => (
               <li key={index}>
-                <b>From</b> {formatDate(education.dateRange[0])} <b>To</b>{" "}
-                {formatDate(education.dateRange[1])}
+                {education.dateRange} 
                 <br />
                 {education.degree} <b>In</b> {education.institution}
               </li>

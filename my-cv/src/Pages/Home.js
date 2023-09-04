@@ -18,6 +18,10 @@ function Home() {
       title: "Colored CV",
       image: template2,
     },
+    {
+      title: "professionnel CV",
+      image: template2,
+    },
     // Add more templates as needed
   ];
 
