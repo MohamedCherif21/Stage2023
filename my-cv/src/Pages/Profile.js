@@ -18,9 +18,11 @@ function Profile() {
       });
       localStorage.setItem("my-cv-users", JSON.stringify(result.data));
       setLoading(false);
+      console.log("success")
       message.success("profile updated successefuly");
       console.log(user.data._id);
     } catch (error) {
+      console.log("error")
       setLoading(false);
       message.error("update failedd");
     }

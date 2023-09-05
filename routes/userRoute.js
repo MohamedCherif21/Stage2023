@@ -225,4 +225,30 @@ app.post("/reset-password/:id", async (req, res) => {
 });
 
 
+app.get("/users", async (req, res) => {
+  try {
+    const users = await User.find(); // 
+    res.json(users);
+  } catch (error) {
+    console.error("Error fetching users:", error);
+    res.status(500).json({ error: "Server error" });  
+  }
+});
+
+app.delete("/users/:id", async (req, res) => {
+  try {
+    const userId = req.params.id;
+    const deletedUser = await User.findByIdAndRemove(userId);
+    if (!deletedUser) {
+      return res.status(404).json({ error: "User not found" });
+    }
+    res.json({ message: "User deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting user:", error);
+    res.status(500).json({ error: "Server error" });
+  }
+});
+
+
+
 module.exports = app;

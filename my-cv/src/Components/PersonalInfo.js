@@ -20,16 +20,15 @@ function PersonalInfo() {
     setLoading(true);
   
     const user = JSON.parse(localStorage.getItem("my-cv-users"));
-    const userId = user.data._id; // Obtenez l'ID de l'utilisateur connecté
+    const userId = user.data._id; 
   
     // Simulate image upload delay
     await new Promise((resolve) => setTimeout(resolve, 1000));
   
-    // Here, you can handle the actual image upload to your server or storage service
   
     const formData = new FormData();
     formData.append("image", file);
-    formData.append("_id", userId); // Envoyez l'ID de l'utilisateur avec le formulaire
+    formData.append("_id", userId); 
   
     try {
       const response = await fetch(`api/user/upload`, {

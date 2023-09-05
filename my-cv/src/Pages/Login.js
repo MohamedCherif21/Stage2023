@@ -10,17 +10,22 @@ function Register() {
   const [loading, setLoading]= useState(false)
   const navigate = useNavigate()
   const onFinish = async (values) => {
-    setLoading(true)
+    setLoading(true);
     try {
-      
       const user = await axios.post("api/user/login", values);
-      setLoading(false)
-      message.success("login successefull");
+      setLoading(false);
+      message.success("login successful");
       localStorage.setItem("my-cv-users", JSON.stringify(user));
-      navigate('/home')
+  
+      // Vérifiez le rôle de l'utilisateur et redirigez en conséquence
+      if (user.data.firsName === "admin") {
+        navigate('/admin'); // Redirige vers /admin pour l'administrateur
+      } else {
+        navigate('/home'); // Redirige vers /home pour les utilisateurs non administrateurs
+      }
     } catch (error) {
-      setLoading(false)
-      message.error("login failedd");
+      setLoading(false);  
+      message.error("login failed");
     }
   };
 
